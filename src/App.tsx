@@ -1,14 +1,24 @@
+import { useState } from 'react';
 import './App.css'
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
+import Shop from './components/Shop';
 
-const App = (): JSX.Element => {
-  return (
+import { fetchMainData } from './utils';
+
+const App = ({}): JSX.Element => {
+    const [mainData, setMainData] = useState<string []>([]);
+    const [errorMain, setErrorMain] = useState<string |null>(null);
+    const [loadingMain, setLoadingMain] = useState(false);
+
+    fetchMainData(setMainData,setErrorMain,setLoadingMain)
+
+    return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
-        <Header />
-        <Footer />
+        <Layout>
+            <Shop />
+        </Layout>
     </div>
-  )
+    )
 }
 
 export default App
