@@ -1,10 +1,10 @@
+import { Shoe } from "../types/ShoeType";
 
-const Shop = (): JSX.Element => {
+const Shop = (): React.ReactElement<Shoe> => {
 
     return (
     <main>
-        <h1>Welcome to Shop</h1>
-        
+        <h1>Welcome to Shop</h1>        
     </main>
     )
 }

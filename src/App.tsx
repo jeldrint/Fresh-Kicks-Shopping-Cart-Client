@@ -4,17 +4,23 @@ import Layout from './components/Layout';
 import Shop from './components/Shop';
 
 import { fetchMainData } from './utils';
+import { type Shoe } from './types/ShoeType';
+import Card from './components/Card';
 
-const App = ({}): JSX.Element => {
-    const [mainData, setMainData] = useState<string []>([]);
-    const [errorMain, setErrorMain] = useState<string |null>(null);
-    const [loadingMain, setLoadingMain] = useState(false);
 
-    fetchMainData(setMainData,setErrorMain,setLoadingMain)
+const App = (): React.ReactElement => {
+    const [mainData, setMainData] = useState<Shoe []>([]);
+    const [isErrorMain, setIsErrorMain] = useState<string |null>(null);
+    const [isLoadingMain, setIsLoadingMain] = useState(false);
+
+    fetchMainData(setMainData,setIsErrorMain,setIsLoadingMain)
+    if (isLoadingMain) return <p>Loading... Please wait</p>
+    if (isErrorMain) return <p>{isErrorMain}</p>
 
     return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
-        <Layout>
+        <Card mainData={mainData} />
+        <Layout >
             <Shop />
         </Layout>
     </div>

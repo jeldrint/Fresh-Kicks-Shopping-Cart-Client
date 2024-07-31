@@ -9,13 +9,13 @@ export default defineConfig({
       manifest: true,
       outDir: 'dist',
       rollupOptions: {
-          input: ['./src/main.jsx', './index.html']
+          input: ['./src/main.tsx', './index.html']
       },
     },
     server: {
       proxy: {
         //"/techy-blog/api": "https://blog-api-server-production-7657.up.railway.app"
-        "/techy-blog/api": "http://localhost:3000"
+        "/api": "http://localhost:3000"
       }
     }
   })
