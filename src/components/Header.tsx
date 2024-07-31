@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import HotIcon from '../images/icons8-hot-48.png'
 
 const Header = () : JSX.Element => {
     return (
@@ -7,12 +8,30 @@ const Header = () : JSX.Element => {
                 <span className=''>Fresh</span>
                 <span className='text-slate-100'>Kicks</span>
             </div>
-            <section className='list-none cursor-pointer flex items-center gap-x-3 md:gap-x-5 lg:gap-x-7 text-sm md:text-base lg:text-lg xl:text-xl font-medium font-varela'>
-                <Link to=''>
-                    <button className="transition duration-150 hover:invert" >Login</button>
+            <section className='list-none cursor-pointer text-slate-100 opacity-90 tracking-wide flex items-center gap-x-3 md:gap-x-5 lg:gap-x-7 text-[11px] md:text-[13px] lg:text-[15px] xl:text-[17px] font-varela'>
+                <Link to='' className="transition duration-150 hover:invert">
+                    Shop Now
                 </Link>
-                <Link to=''>
-                    <button className="transition duration-150 hover:invert">Sign up</button>
+                <Link to='' className="transition duration-150 hover:invert flex items-center">
+                    <img alt='hot-item' src={HotIcon} width='15px' />Hot!
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert">
+                    New Arrival
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert hidden sm:block">
+                    Men
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert hidden sm:block">
+                    Women
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert hidden sm:block">
+                    Kids
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert hidden sm:block">
+                    Login
+                </Link>
+                <Link to='' className="transition duration-150 hover:invert hidden sm:block">
+                    Sign-up
                 </Link>
             </section>
         </header>
