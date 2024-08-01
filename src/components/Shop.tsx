@@ -1,10 +1,13 @@
-import { Shoe } from "../types/ShoeType";
+import { Shoe } from "../types/shoetype";
+import { useParams } from "react-router-dom";
 
-const Shop = (): React.ReactElement<Shoe> => {
+
+const Shop = (): React.ReactElement => {
+    const { categories } = useParams();
 
     return (
     <main>
-        <h1>Welcome to Shop</h1>        
+        <h1>Welcome to {categories ? categories : 'shop'}</h1>        
     </main>
     )
 }

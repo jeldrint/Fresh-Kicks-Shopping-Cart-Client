@@ -1,13 +1,9 @@
-import { Link, Outlet } from "react-router-dom"
-import GitIcon from '../images/github.png'
+import { Link } from "react-router-dom"
 import HotIcon from '../images/icons8-hot-48.png'
 import CartIcon from '../images/shopping-bag-blk.png'
 
-type LayoutProps = {
-    children: React.ReactNode,
-}
+const Header = () : React.ReactElement => {
 
-const Layout = (props: LayoutProps) : React.ReactElement => {
     return (
         <>
             <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between bg-indigo-700">
@@ -44,22 +40,11 @@ const Layout = (props: LayoutProps) : React.ReactElement => {
                     </div>
                 </section>
             </header>
-            <Outlet />
-            <footer className='w-full static bottom-0 text-xs md:text-base lg:text-lg font-myFont flex justify-center items-center p-2 md:p-1'>
-                <span className=""> 2024 {String.fromCharCode(169)} jeldrint{" "}
-                    <a href='https://github.com/jeldrint' target='_blank' rel='noopener'>
-                        <img alt='Github Icon' src={GitIcon} className='w-5 inline-flex transition-opacity hover:opacity-50' />
-                    </a>{" "}
-                    || Icons by{" "}
-                        <a href='https://icons8.com' target='_blank' className='underline transition-opacity hover:opacity-50' rel='noopener'>Icons 8</a>
-                </span>
-            </footer>
-
         </>
     )    
 
 }
 
-export default Layout;
+export default Header;
 
 

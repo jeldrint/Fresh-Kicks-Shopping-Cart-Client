@@ -1,5 +1,9 @@
 
 
+export type setDataProps = React.Dispatch<React.SetStateAction<Shoe []>>
+export type setErrorProps = React.Dispatch<React.SetStateAction<string | null>>
+export type setLoadingProps = React.Dispatch<React.SetStateAction<boolean>>
+
 export type Shoe = {
     id: number,
     name_id?: string,

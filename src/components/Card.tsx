@@ -1,8 +1,8 @@
-import { Shoe } from "../types/ShoeType";
+import { Shoe } from "../types/shoetype";
 
 
-const Card = (props: Shoe):React.ReactElement => {
-    console.log(props)
+const Card = ({mainData}: {mainData: Shoe []}):React.ReactElement<Shoe> => {
+    console.log(mainData)
     return <h1>Hello</h1>
 }
 

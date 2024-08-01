@@ -1,9 +1,7 @@
 import { useEffect } from "react"
-import { type Shoe } from "./types/ShoeType"
+import { type Shoe } from "./types/shoetype"
 
-type setDataProps = React.Dispatch<React.SetStateAction<Shoe []>>
-type setErrorProps = React.Dispatch<React.SetStateAction<string | null>>
-type setLoadingProps = React.Dispatch<React.SetStateAction<boolean>>
+import { setDataProps, setErrorProps, setLoadingProps } from "./types/shoetype"
 
 export const fetchMainData = (setData: setDataProps, setIsError: setErrorProps, setIsLoading: setLoadingProps) => {
     useEffect(() => {

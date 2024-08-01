@@ -1,11 +1,16 @@
 import App from './App';
+import { useState } from 'react';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import { Shoe } from './types/shoetype';
 import Shop from './components/Shop';
 
-//import { useState } from 'react';
+const Router = () : React.ReactElement => {
+    const [mainData, setMainData] = useState<Shoe []>([]);
+    const [isErrorMain, setIsErrorMain] = useState<string |null>(null);
+    const [isLoadingMain, setIsLoadingMain] = useState(false);
 
-const Router = () : JSX.Element => {
+
     const router = createBrowserRouter([
         {
             path: '/',
@@ -14,13 +19,12 @@ const Router = () : JSX.Element => {
 
         {
             path: '/fresh-kicks',
-            element: <App />,
+            element: <App mainData={mainData} setMainData={setMainData} isErrorMain={isErrorMain} setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain} />,
             children: [
                 {path: '/fresh-kicks/shop', element: <Shop />},
-                {path: '/fresh-kicks/shop/:name', element: <Shop />},
+                {path: '/fresh-kicks/shop/:categories', element: <Shop />}
             ]
         },
-
     ])
     return <RouterProvider router={router} />
 
