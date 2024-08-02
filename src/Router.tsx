@@ -22,7 +22,7 @@ const Router = () : React.ReactElement => {
             element: <App mainData={mainData} setMainData={setMainData} isErrorMain={isErrorMain} setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain} />,
             children: [
                 {path: '/fresh-kicks/shop', element: <Shop mainData={mainData} />},
-                {path: '/fresh-kicks/shop/:categories', element: <Shop mainData={mainData} />}
+                {path: '/fresh-kicks/shop/:category', element: <Shop mainData={mainData} />}
             ]
         },
     ])

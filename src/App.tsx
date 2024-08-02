@@ -16,8 +16,6 @@ const App = ({mainData, setMainData, isErrorMain, setIsErrorMain, isLoadingMain,
     if (isLoadingMain) return <p>Loading... Please wait</p>
     if (isErrorMain) return <p>{isErrorMain}</p>
 
-    console.log(mainData)
-
     return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
         <Header />

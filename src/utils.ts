@@ -10,7 +10,7 @@ export const fetchMainData = (setData: setDataProps, setIsError: setErrorProps, 
             try {
                 const data = await fetch('/api', {mode: 'cors'} );
                 const response:Shoe[] = await data.json();
-                console.log(response)
+                //console.log(response)
                 setData(response)
             }catch(error){
                 const message =

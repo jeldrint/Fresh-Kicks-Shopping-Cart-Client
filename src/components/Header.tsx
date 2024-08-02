@@ -6,16 +6,16 @@ const Header = () : React.ReactElement => {
 
     return (
         <>
-            <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between bg-indigo-700">
-                <Link to='/' className='font-varelaRound self-end transition duration-200 hover:invert cursor-pointer text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl '>
-                    <span className=''>Fresh</span>
+            <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between bg-indigo-800">
+                <Link to='/' className='font-varelaRound font-bold self-end transition duration-200 hover:invert cursor-pointer text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl '>
+                    <span>Fresh</span>
                     <span className='text-slate-100'>Kicks</span>
                 </Link>
                 <section className="text-slate-100 opacity-90 tracking-wide flex flex-col gap-y-1">
-                    <Link to='' className="transition duration-150 hover:invert flex justify-end text-[6px] md:text-[10px] lg:text-[12px] xl:text-[13px]">
+                    <Link to='' className="transition duration-150 hover:invert flex justify-end self-end text-[9px] md:text-[11px] lg:text-[12px] xl:text-[13px]">
                         LOGIN | REGISTER
                     </Link>
-                    <div className='list-none cursor-pointer flex items-start gap-x-3 md:gap-x-5 lg:gap-x-7 text-[11px] md:text-[15px] lg:text-[17px] xl:text-[19px]'>
+                    <div className='list-none cursor-pointer flex items-start gap-x-3 md:gap-x-5 lg:gap-x-7 text-[11px] md:text-[16px] lg:text-[18px] xl:text-[20px]'>
                         <Link to='/fresh-kicks/shop' className="transition duration-150 hover:invert hover:scale-[1.15]">
                             Shop Now
                         </Link>
