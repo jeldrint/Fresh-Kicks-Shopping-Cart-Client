@@ -4,6 +4,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { Shoe } from './types/shoetype';
 import Shop from './components/Shop';
+import ShoeSolo from './components/ShoeSolo';
 
 const Router = () : React.ReactElement => {
     const [mainData, setMainData] = useState<Shoe []>([]);
@@ -21,10 +22,14 @@ const Router = () : React.ReactElement => {
             path: '/fresh-kicks',
             element: <App mainData={mainData} setMainData={setMainData} isErrorMain={isErrorMain} setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain} />,
             children: [
-                {path: '/fresh-kicks/shop', element: <Shop mainData={mainData} />},
-                {path: '/fresh-kicks/shop/:category', element: <Shop mainData={mainData} />}
+                {path: '/fresh-kicks/:category', element: <Shop mainData={mainData} />},
             ]
         },
+        {
+            path: '/fresh-kicks/:category/:id',
+            element: <ShoeSolo />
+        },
+
     ])
     return <RouterProvider router={router} />
 

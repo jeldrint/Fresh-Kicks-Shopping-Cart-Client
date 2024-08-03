@@ -11,6 +11,10 @@ export default {
               varelaRound: 'Varela Round',
               roboto: 'Roboto',
               playfair: 'Playfair Display SC',
+              openSans: 'Open Sans',
+              montserrat: 'Montserrat',
+              poppins: 'Poppins',
+              lato: 'Lato'
           },
           colors: {
             "light-brown": "#835938",
