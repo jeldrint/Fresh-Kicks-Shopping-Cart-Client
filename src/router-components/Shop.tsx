@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Shoe } from "../types/shoetype";
-import Card from "./Card";
+import Card from "../components/Card";
 
 
 const Shop = ({mainData}: {mainData: Shoe []}): React.ReactElement => {

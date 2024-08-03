@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { Shoe } from './types/shoetype';
-import Shop from './components/Shop';
-import ShoeSolo from './components/ShoeSolo';
+import Shop from './router-components/Shop';
+import ShoeSolo from './router-components/ShoeSolo';
 
 const Router = () : React.ReactElement => {
     const [mainData, setMainData] = useState<Shoe []>([]);
@@ -22,12 +22,9 @@ const Router = () : React.ReactElement => {
             path: '/fresh-kicks',
             element: <App mainData={mainData} setMainData={setMainData} isErrorMain={isErrorMain} setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain} />,
             children: [
-                {path: '/fresh-kicks/:category', element: <Shop mainData={mainData} />},
+                { path: '/fresh-kicks/:category', element: <Shop mainData={mainData} /> },
+                { path: '/fresh-kicks/:category/:name_id', element: <ShoeSolo mainData={mainData} /> },
             ]
-        },
-        {
-            path: '/fresh-kicks/:category/:id',
-            element: <ShoeSolo />
         },
 
     ])

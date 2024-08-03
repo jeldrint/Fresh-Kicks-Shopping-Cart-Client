@@ -1,5 +1,4 @@
 
-
 export type setDataProps = React.Dispatch<React.SetStateAction<Shoe []>>
 export type setErrorProps = React.Dispatch<React.SetStateAction<string | null>>
 export type setLoadingProps = React.Dispatch<React.SetStateAction<boolean>>
@@ -18,7 +17,7 @@ export type Shoe = {
     category: Shoe_Category,
 }
 
-type Shoe_Category = {
+export type Shoe_Category = {
     id: number,
     new_arrival: boolean,
     hot_item: boolean,
@@ -31,7 +30,7 @@ type Shoe_Category = {
     kidsShoeSize?: Kids_Shoe_Size
 }
 
-type Men_Shoe_Size = {
+export type Men_Shoe_Size = {
     id: number,
     eur_39: boolean,
     eur_40: boolean,
@@ -47,7 +46,7 @@ type Men_Shoe_Size = {
     categoryId: number
 }
 
-type Women_Shoe_Size = {
+export type Women_Shoe_Size = {
     id: number,
     eur_33: boolean,
     eur_34: boolean,
@@ -61,7 +60,7 @@ type Women_Shoe_Size = {
     categoryId: number
 }
 
-type Kids_Shoe_Size = {
+export type Kids_Shoe_Size = {
     id: number,
     eur_30: boolean,
     eur_31: boolean,
