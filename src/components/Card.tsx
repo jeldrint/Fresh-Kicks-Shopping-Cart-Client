@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { Shoe } from "../types/shoetype";
+import ShoePrice from "./ShoePrice";
 
 const Card = ({shoe}: {shoe: Shoe}) : React.ReactElement => {
     const {category} = useParams();
@@ -13,15 +14,7 @@ const Card = ({shoe}: {shoe: Shoe}) : React.ReactElement => {
                     <span className="text-red-700 font-bold font-montserrat">{shoe.brand.toUpperCase()}</span>
                     <span>{shoe.name}</span>
                 </div>
-                <div aria-label='shoe-price' className='font-lato text-sm self-end'>
-                    {shoe.discount != null ?
-                    <div className='flex flex-col'>
-                        <span className='text-red-500 line-through'>{'\u20B1 '}{(Math.round(shoe.price*100)/100).toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
-                        <span >{'\u20B1 '}{(Math.round((shoe.price - shoe.price * shoe.discount)*100)/100).toLocaleString(undefined, {minimumFractionDigits: 2})}</span>                      
-                    </div> :
-                    <span>{'\u20B1 '}{(Math.round(shoe.price*100)/100).toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
-                    }
-                </div>
+                <ShoePrice shoe={shoe} className='font-lato text-xs md:text-sm self-end' />
             </div>
         </Link>
     )

@@ -10,6 +10,7 @@ const Router = () : React.ReactElement => {
     const [mainData, setMainData] = useState<Shoe []>([]);
     const [isErrorMain, setIsErrorMain] = useState<string |null>(null);
     const [isLoadingMain, setIsLoadingMain] = useState(false);
+    const [cartItems, setCartItems] = useState<Shoe []>([]);
 
 
     const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const Router = () : React.ReactElement => {
             element: <App mainData={mainData} setMainData={setMainData} isErrorMain={isErrorMain} setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain} />,
             children: [
                 { path: '/fresh-kicks/:category', element: <Shop mainData={mainData} /> },
-                { path: '/fresh-kicks/:category/:name_id', element: <ShoeSolo mainData={mainData} /> },
+                { path: '/fresh-kicks/:category/:name_id', element: <ShoeSolo mainData={mainData} cartItems={cartItems} setCartItems={setCartItems} /> },
             ]
         },
 

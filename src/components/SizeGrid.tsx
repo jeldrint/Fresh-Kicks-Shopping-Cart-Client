@@ -33,16 +33,12 @@ const SizeGrid = ({category, sizeSwitch, setSizeSwitch}: SizeGridProps) : React.
                     <section key={items.id} className="mb-10 text-xs font-montserrat text-indigo-800 grid grid-cols-4 max-w-xs gap-2">
                     { Object.entries(items).filter(item => typeof item[1] === 'boolean').map(size=> {
                         let shoeID = gender.concat('-'+size[0]).toLowerCase();
-                        //console.log(shoeID)
-                        return(
-                            <>
-                                { size[1] ?
-                                <button key={shoeID} name={shoeID} type='button' className={className1} >{size[0].toUpperCase().replace('_',' ')}</button>: 
-                                <button key={shoeID} name={shoeID} type='button' disabled className='text-center border rounded py-2 bg-slate-100 text-slate-400'>{size[0].toUpperCase().replace('_',' ')}</button>
-                                }
-                                {shoeID = ''}
-                            </>
-                        )
+                        if(size[1]){
+                            return <button key={shoeID} type='submit' onClick={e=>{e.preventDefault(); setSizeSwitch(shoeID)}} className={sizeSwitch === shoeID ? className2: className1} >{size[0].toUpperCase().replace('_',' ')}</button>
+                        }else{
+                            return <button key={shoeID} type='button' disabled className='text-center border rounded py-2 bg-slate-100 text-slate-400'>{size[0].toUpperCase().replace('_',' ')}</button>
+                        }
+                                
                     })}
                     </section>    
             )
@@ -52,66 +48,3 @@ const SizeGrid = ({category, sizeSwitch, setSizeSwitch}: SizeGridProps) : React.
 }
 
 export default SizeGrid
-
-// if(typeof items === 'string'){
-//     if(items === 'menShoeSize'){
-//         gender = 'Men'
-//     }
-//     if(items === 'womenShoeSize'){
-//         gender = 'Women'
-//     }
-//     if (items === 'kidsShoeSize') {
-//         gender = 'Kids'
-//     }
-// }
-
-// return(
-//     typeof items === 'string' ?
-//     <label key={items} className='text-sm md:text-md font-montserrat tracking-wide font-bold'>{gender}</label> :
-
-//     typeof items === 'object' &&
-//     <section key={items.id} className="mb-10 text-xs font-montserrat text-indigo-800 grid grid-cols-4 max-w-xs gap-2">
-//     { Object.entries(items).filter(item => typeof item[1] === 'boolean').map(size=> {
-//         let shoeID = gender.concat('-'+size[0]).toLowerCase();
-//         //console.log(shoeID)
-//         return(
-//             <>
-//                 { size[1] &&
-//                 <button key={shoeID} id={shoeID} type='button' className={className1} >{size[0].toUpperCase().replace('_',' ')}</button>
-//                 }
-//                 {shoeID = ''}
-//             </>
-//         )
-//     })}
-//     </section>    
-// )
-
-
-
-//:
-//<button key={shoeID} id={shoeID} type='button' disabled className='text-center border rounded py-2 bg-slate-100 text-slate-400'>{size[0].toUpperCase().replace('_',' ')}</button>
-// {
-//     //console.log(items)
-//     typeof items[0] === 'string' ?
-//     <label htmlFor='shoe-sizes' className='text-sm md:text-md font-varela'>{items[0].toUpperCase()}</label> :
-//     <section className="text-sm text-indigo-800 grid grid-cols-4 max-w-xs gap-2">
-//         { Object.entries(items[1]).filter(items => typeof items[1] === 'boolean').map(size=> {
-//             let sizeID = items[0]+'-'+size[0];
-//             console.log(sizeID)
-//             return (
-//                 <>
-//                 {
-//                     size[1] ?
-//                     <button key={sizeID} onClick={(e)=>{e.preventDefault(); setSizeSwitch(sizeID)}} className={sizeSwitch === sizeID ? className2 : className1} >
-//                         {size[0]}
-//                     </button> :
-//                     <button key={sizeID} disabled className='text-center border rounded py-2 bg-slate-100 text-slate-400'>{size[0]}</button>
-//                 }
-//                 </>
-
-//                 )
-//             })
-            
-//         }
-//     </section>
-// }
