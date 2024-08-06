@@ -19,13 +19,16 @@ const App = ({ setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoa
 
     fetchMainData(setMainData,setIsErrorMain,setIsLoadingMain)
 
-    if (isLoadingMain) return <p>Loading... Please wait</p>
     if (isErrorMain) return <p>{isErrorMain}</p>
 
     return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
+
         <Header cartItems={cartItems} setCartItems={setCartItems} />
-        <Outlet />
+        {
+            isLoadingMain ? <p>Loading... Please wait</p> :
+            <Outlet />
+        }
         <Footer />
     </div>
     )
