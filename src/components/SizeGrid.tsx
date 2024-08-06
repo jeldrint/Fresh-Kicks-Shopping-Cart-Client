@@ -30,11 +30,11 @@ const SizeGrid = ({category, sizeSwitch, setSizeSwitch}: SizeGridProps) : React.
                     <label key={items} className='text-sm md:text-md font-montserrat tracking-wide font-bold'>{gender}</label> :
 
                     typeof items === 'object' &&
-                    <section key={items.id} className="mb-10 text-xs font-montserrat text-indigo-800 grid grid-cols-4 max-w-xs gap-2">
+                    <section key={items.id} className="mb-4 text-xs font-montserrat text-indigo-800 grid grid-cols-4 max-w-xs gap-2">
                     { Object.entries(items).filter(item => typeof item[1] === 'boolean').map(size=> {
                         let shoeID = gender.concat('-'+size[0]).toLowerCase();
                         if(size[1]){
-                            return <button key={shoeID} type='submit' onClick={e=>{e.preventDefault(); setSizeSwitch(shoeID)}} className={sizeSwitch === shoeID ? className2: className1} >{size[0].toUpperCase().replace('_',' ')}</button>
+                            return <button key={shoeID} type='button' onClick={e=>{e.preventDefault(); setSizeSwitch(shoeID)}} className={sizeSwitch === shoeID ? className2: className1} >{size[0].toUpperCase().replace('_',' ')}</button>
                         }else{
                             return <button key={shoeID} type='button' disabled className='text-center border rounded py-2 bg-slate-100 text-slate-400'>{size[0].toUpperCase().replace('_',' ')}</button>
                         }

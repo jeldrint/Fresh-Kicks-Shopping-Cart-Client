@@ -1,7 +1,11 @@
-
-export type setDataProps = React.Dispatch<React.SetStateAction<Shoe []>>
-export type setErrorProps = React.Dispatch<React.SetStateAction<string | null>>
-export type setLoadingProps = React.Dispatch<React.SetStateAction<boolean>>
+export type CartItems = {
+    id: string,
+    img_URL: string,
+    name: string,
+    price: number,
+    qty: number,
+    size: string
+}
 
 export type Shoe = {
     id: number,

@@ -1,20 +1,22 @@
 import { fetchMainData } from './utils';
-import { setDataProps, setErrorProps, setLoadingProps, Shoe } from './types/shoetype';
+import { CartItems, Shoe } from './types/shoetype';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 
 type AppProps = {
     mainData: Shoe [],
-    setMainData: setDataProps,
+    setMainData: React.Dispatch<React.SetStateAction<Shoe []>>,
     isErrorMain: null | string,
-    setIsErrorMain: setErrorProps,
+    setIsErrorMain: React.Dispatch<React.SetStateAction<string | null>>,
     isLoadingMain: boolean,
-    setIsLoadingMain: setLoadingProps
+    setIsLoadingMain: React.Dispatch<React.SetStateAction<boolean>>,
+    cartItems: CartItems [],
+    setCartItems: React.Dispatch<React.SetStateAction<CartItems []>>,
 }
 
 
-const App = ({mainData, setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoadingMain}: AppProps): React.ReactElement => {
+const App = ({mainData, setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoadingMain, cartItems, setCartItems}: AppProps): React.ReactElement => {
 
     fetchMainData(setMainData,setIsErrorMain,setIsLoadingMain)
 
@@ -23,7 +25,7 @@ const App = ({mainData, setMainData, isErrorMain, setIsErrorMain, isLoadingMain,
 
     return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
-        <Header />
+        <Header cartItems={cartItems} setCartItems={setCartItems} />
         <Outlet />
         <Footer />
     </div>

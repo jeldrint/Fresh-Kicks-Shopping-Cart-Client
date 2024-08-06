@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom"
 import HotIcon from '../images/icons8-hot-48.png'
 import CartIcon from '../images/shopping-bag-blk.png'
+import { useState } from "react"
+import { CartItems } from "../types/shoetype"
+import Cart from "./Cart"
 
-const Header = () : React.ReactElement => {
+type HeaderProps = {
+    cartItems: CartItems [],
+    setCartItems: React.Dispatch<React.SetStateAction<CartItems[]>>
+}
+
+const Header = ({cartItems, setCartItems}: HeaderProps) : React.ReactElement => {
+    const [isCartDisplayed, setIsCartDisplayed] = useState<boolean>(false);
+    const [cartTotalAmount, setCartTotalAmount] = useState<number>(0);
+
+    const handleCart = (): void => {
+        setIsCartDisplayed(!isCartDisplayed);
+        setCartTotalAmount(cartItems.reduce((prev,curr)=>prev+(curr.price*curr.qty),0));
+    }
 
     return (
         <>
@@ -12,10 +27,7 @@ const Header = () : React.ReactElement => {
                     <span className='text-slate-100'>Kicks</span>
                 </Link>
                 <section className="text-slate-100 opacity-90 tracking-wide flex flex-col gap-y-1">
-                    <Link to='' className="font-montserrat transition duration-150 hover:invert flex justify-end self-end text-[9px] md:text-[11px] lg:text-[12px] xl:text-[13px]">
-                        LOGIN | REGISTER
-                    </Link>
-                    <div className='list-none cursor-pointer flex items-start gap-x-3 md:gap-x-5 lg:gap-x-7 text-[11px] md:text-[16px] lg:text-[18px] xl:text-[20px]'>
+                    <div className='list-none cursor-pointer flex items-start gap-x-3 md:gap-x-5 lg:gap-x-7 text-[13px] md:text-[15px] lg:text-[17px] xl:text-[19px]'>
                         <Link to='/fresh-kicks/shop' className="transition duration-150 hover:invert hover:scale-[1.15]">
                             Shop Now
                         </Link>
@@ -34,9 +46,13 @@ const Header = () : React.ReactElement => {
                         <Link to='/fresh-kicks/kids' className="transition duration-150 hover:invert hover:scale-[1.15] hidden sm:block">
                             Kids
                         </Link>
-                        <img alt='hot-item' src={CartIcon} width='15px' className="w-4 md:w-5 lg:w-7 invert transition duration-150 hover:invert hover:scale-[1.15]" />
+                        <div onClick={handleCart} className='flex items-center transition-opacity hover:opacity-70'>
+                            <img alt='hot-item' src={CartIcon} width='15px' className="w-4 md:w-5 lg:w-7 invert transition duration-150 hover:invert hover:scale-[1.15]" />
+                            <span className='bg-white text-black text-[10px] md:text-[12px] px-1.5 py-0.25 rounded-xl'>{cartItems.reduce((prev,curr)=> prev+curr.qty, 0)}</span>
+                        </div>                       
                     </div>
                 </section>
+                <Cart cartItems={cartItems} setCartItems={setCartItems} isCartDisplayed={isCartDisplayed} setIsCartDisplayed={setIsCartDisplayed} cartTotalAmount={cartTotalAmount} setCartTotalAmount={setCartTotalAmount} />
             </header>
         </>
     )    
