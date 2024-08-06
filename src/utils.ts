@@ -1,9 +1,12 @@
 import { useEffect } from "react"
 import { type Shoe } from "./types/shoetype"
 
-import { setDataProps, setErrorProps, setLoadingProps } from "./types/shoetype"
+type setDataProps = React.Dispatch<React.SetStateAction<Shoe[]>>;
+type setIsErrorProps = React.Dispatch<React.SetStateAction<string | null>>;
+type setIsLoadingProps = React.Dispatch<React.SetStateAction<boolean>>;
 
-export const fetchMainData = (setData: setDataProps, setIsError: setErrorProps, setIsLoading: setLoadingProps) => {
+
+export const fetchMainData = (setData: setDataProps, setIsError: setIsErrorProps, setIsLoading: setIsLoadingProps) => {
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);

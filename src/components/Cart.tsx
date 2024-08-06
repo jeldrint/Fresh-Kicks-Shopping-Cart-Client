@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { CartItems } from "../types/shoetype";
+import { setItem } from "../localstorage";
 
 type CartProps = {
     cartItems: CartItems [],
@@ -10,6 +12,8 @@ type CartProps = {
 }
 
 const Cart = ({cartItems, setCartItems, isCartDisplayed, setIsCartDisplayed, cartTotalAmount, setCartTotalAmount} : CartProps) => {
+    //saving to localstorage
+    setItem<CartItems []>('cartItems',cartItems)
 
     const handleQtyChange = (e: React.ChangeEvent<HTMLInputElement>, cartShoe: CartItems) => {
         let tempArr = cartItems;
@@ -20,6 +24,7 @@ const Cart = ({cartItems, setCartItems, isCartDisplayed, setIsCartDisplayed, car
             tempArr[tempArr.findIndex(item=>item.id === cartShoe.id)].qty = 99
         }
         setCartItems(tempArr);
+
         setCartTotalAmount(cartItems.reduce((prev,curr)=>prev+(curr.price*curr.qty),0));
         if(!cartItems){
             setCartTotalAmount(0);
@@ -64,12 +69,20 @@ const Cart = ({cartItems, setCartItems, isCartDisplayed, setIsCartDisplayed, car
                         </div>
                     )
                 })}
+                <div className="flex items-center justify-evenly">
                 {
                     cartItems.length === 0 ? 
                     <div className='h-full text-center font-bold font-montserrat text-xl tracking-wider text-indigo-800'>No items in cart yet.</div>
                     : <div className='font-bold tracking-wide text-lg'>TOTAL:&ensp;{'\u20B1 '}{cartTotalAmount.toLocaleString(undefined, {minimumFractionDigits: 2})}</div>
                 }
-
+                {
+                    cartItems.length != 0 &&
+                    <Link to='/fresh-kicks/checkout' type='submit' className='px-8 py-3 rounded-full flex flex-col items-center justify-between
+                    transition-colors bg-indigo-700 text-slate-200 hover:bg-indigo-800 active:scale-90 '>
+                        Proceed to Checkout
+                    </Link>
+                }
+                </div>
             </section>
         )
 }

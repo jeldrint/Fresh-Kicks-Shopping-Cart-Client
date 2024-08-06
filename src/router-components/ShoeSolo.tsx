@@ -4,6 +4,7 @@ import { useState } from "react";
 import SizeGrid from "../components/SizeGrid";
 import ShoePrice from "../components/ShoePrice";
 import CartIcon from '../images/shopping-bag.png'
+import { setItem } from "../localstorage";
 
 type ShoeSoloProps ={
     mainData: Shoe [],
@@ -49,11 +50,13 @@ const ShoeSolo = ({mainData, cartItems, setCartItems} : ShoeSoloProps) : React.R
                         <div className='flex flex-col justify-start items-center gap-y-5 md:gap-y-3 lg:gap-y-2'>
                                 <h1 className='text-lg font-lato tracking-wide font-bold text-center'>{shoe.name}</h1>
                                 <SizeGrid category={shoe.category} sizeSwitch={sizeSwitch} setSizeSwitch={setSizeSwitch} />
-                                {errMsg === 'no-size-selected' &&
-                                    <h3 className={'text-md font-myFont text-red-500'}>No size specified.</h3> }
-                                { errMsg === 'duplicate-shoe' &&
-                                    <h3 className={'text-md font-myFont text-red-500'}>Shoe already added to cart.</h3>
+                                {errMsg === 'no-size-selected' ?
+                                    <h3 className={'text-md font-myFont text-red-500'}>No size specified.</h3> :
+                                 errMsg === 'duplicate-shoe' ?
+                                    <h3 className={'text-md font-myFont text-red-500'}>Shoe already added to cart.</h3> :
+                                    <h3 className='text-md font-myFont text-black opacity-0'>This is an invisible text.</h3>
                                 }
+
                                 <div className='flex w-full justify-center items-center gap-x-5'>
                                     <div className='text-2xl font-bold'>
                                         <ShoePrice shoe={shoe} className={'font-montserrat text-sm md:text-lg'} />

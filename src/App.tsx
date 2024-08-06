@@ -5,7 +5,6 @@ import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 
 type AppProps = {
-    mainData: Shoe [],
     setMainData: React.Dispatch<React.SetStateAction<Shoe []>>,
     isErrorMain: null | string,
     setIsErrorMain: React.Dispatch<React.SetStateAction<string | null>>,
@@ -16,7 +15,7 @@ type AppProps = {
 }
 
 
-const App = ({mainData, setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoadingMain, cartItems, setCartItems}: AppProps): React.ReactElement => {
+const App = ({ setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoadingMain, cartItems, setCartItems}: AppProps): React.ReactElement => {
 
     fetchMainData(setMainData,setIsErrorMain,setIsLoadingMain)
 
