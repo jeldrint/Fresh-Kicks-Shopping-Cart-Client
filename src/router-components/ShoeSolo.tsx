@@ -4,7 +4,6 @@ import { useState } from "react";
 import SizeGrid from "../components/SizeGrid";
 import ShoePrice from "../components/ShoePrice";
 import CartIcon from '../images/shopping-bag.png'
-import { setItem } from "../localstorage";
 
 type ShoeSoloProps ={
     mainData: Shoe [],
