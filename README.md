@@ -13,3 +13,4 @@ Currently, two official plugins are available:
 
 
 👉 See it live <a href="https://fresh-kicks.netlify.app/" target="_blank">here</a>
+👉 Server side code <a href="https://github.com/jeldrint/Fresh-Kicks-Shopping-Cart-Server">here</a>
