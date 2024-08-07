@@ -9,8 +9,7 @@ Currently, two official plugins are available:
 ` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-
-
+<br /><br /><br />
 👉 See it live <a href="https://fresh-kicks.netlify.app/" target="_blank">here</a>
+<br /><br />
 👉 Server side code <a href="https://github.com/jeldrint/Fresh-Kicks-Shopping-Cart-Server">here</a>
