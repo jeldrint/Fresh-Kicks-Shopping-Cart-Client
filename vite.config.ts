@@ -14,8 +14,8 @@ export default defineConfig({
     },
     server: {
       proxy: {
-        //"/techy-blog/api": "https://blog-api-server-production-7657.up.railway.app"
-        "/api": "http://localhost:3000"
+        "/api": "https://fresh-kicks-shopping-cart-server-production.up.railway.app"
+        //"/api": "http://localhost:3000"
       }
     }
   })
