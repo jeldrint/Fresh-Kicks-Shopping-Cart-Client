@@ -12,7 +12,7 @@ const Router = () : React.ReactElement => {
     const [mainData, setMainData] = useState<Shoe []>([]);
     const [isErrorMain, setIsErrorMain] = useState<string |null>(null);
     const [isLoadingMain, setIsLoadingMain] = useState(false);
-    const [cartItems, setCartItems] = useState<CartItems []>(getItem<CartItems[] | any>('cartItems'));
+    const [cartItems, setCartItems] = useState<CartItems []>(getItem<CartItems[] | any>('cartItems') ? getItem<CartItems[] | any>('cartItems'): []);
 
     const router = createBrowserRouter([
         {

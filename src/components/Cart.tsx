@@ -45,7 +45,7 @@ const Cart = ({cartItems, setCartItems, isCartDisplayed, setIsCartDisplayed, car
     }
 
     return(
-            <section className={isCartDisplayed ? 'z-10 overflow-y-auto w-[20rem] sm:w-[30rem] h-[80%] bg-white shadow-lg fixed right-[2%] top-[2%] p-4 rounded': 'hidden'}>
+            <section className={isCartDisplayed ? 'z-10 overflow-y-auto w-[20rem] sm:w-[27rem] md:w-[30rem] h-[80%] bg-white shadow-lg fixed right-[2%] top-[2%] p-4 rounded': 'hidden'}>
                 <span onClick={()=>setIsCartDisplayed(false)} className='cursor-pointer font-bold hover:text-indigo-700'>{String.fromCharCode(171)} Go back</span>
                 {cartItems.map((cartShoe)=>{
                     const id = cartShoe.name + '-' + cartShoe.size
@@ -73,11 +73,11 @@ const Cart = ({cartItems, setCartItems, isCartDisplayed, setIsCartDisplayed, car
                 {
                     cartItems.length === 0 ? 
                     <div className='h-full text-center font-bold font-montserrat text-xl tracking-wider text-indigo-800'>No items in cart yet.</div>
-                    : <div className='font-bold tracking-wide text-lg'>TOTAL:&ensp;{'\u20B1 '}{cartTotalAmount.toLocaleString(undefined, {minimumFractionDigits: 2})}</div>
+                    : <div className='font-bold tracking-wide text-xs sm:text-base md:text-lg text-nowrap'>TOTAL:&ensp;{'\u20B1 '}{cartTotalAmount.toLocaleString(undefined, {minimumFractionDigits: 2})}</div>
                 }
                 {
                     cartItems.length != 0 &&
-                    <Link to='/fresh-kicks/checkout' type='submit' className='px-8 py-3 rounded-full flex flex-col items-center justify-between
+                    <Link to='/fresh-kicks/checkout' type='submit' className='text-xs sm:text-base md:text-lg px-1 sm:px-4 md:px-5 py-1 md:py-2 rounded-full text-center
                     transition-colors bg-indigo-700 text-slate-200 hover:bg-indigo-800 active:scale-90 '>
                         Proceed to Checkout
                     </Link>
