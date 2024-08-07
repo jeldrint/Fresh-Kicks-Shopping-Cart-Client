@@ -1,10 +1,4 @@
 [[redirects]]
-force = true
-from = '/api/*'
-status = 200
-to = 'https://fresh-kicks-shopping-cart-server-production.up.railway.app/api/:splat'
-
-[[redirects]]
 from = '/*'
 status = 200
 to = '/index.html'
