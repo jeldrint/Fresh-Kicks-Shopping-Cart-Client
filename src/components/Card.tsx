@@ -4,10 +4,9 @@ import ShoePrice from "./ShoePrice";
 
 const Card = ({shoe}: {shoe: Shoe}) : React.ReactElement => {
     const {category} = useParams();
-    const fullLink: string = `/fresh-kicks/${category}/${shoe.name_id}`
 
     return (
-        <Link to={fullLink} className="relative max-h-xs rounded shadow-lg border-2 p-2 lg:p-4 flex flex-col justify-between cursor-pointer transition duration-250 hover:scale-105">
+        <Link to={`/fresh-kicks/${category}/${shoe.name_id}`} className="relative max-h-xs rounded shadow-lg border-2 p-2 lg:p-4 flex flex-col justify-between cursor-pointer transition duration-250 hover:scale-105">
             <div className='font-sans grid auto-rows-max'>
                 { shoe.discount != null && <span className='absolute right-0 top-0 p-1 font-bold bg-indigo-600 text-slate-200'>-{shoe.discount * 100 }%</span> }
                 <img alt={shoe.name} src={shoe.img_URL} className="object-cover" />

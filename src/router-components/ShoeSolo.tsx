@@ -39,37 +39,34 @@ const ShoeSolo = ({mainData, cartItems, setCartItems} : ShoeSoloProps) : React.R
     return(
         <>
         { mainData.filter(shoe => shoe.name_id === name_id)
-            .map(shoe => {
+            .map(shoe => (
                 //console.log(shoe.category.menShoeSize)
-                return (
-                    <section key={name_id} className="p-6 w-full flex flex-col items-center md:flex-row md:justify-center">
-                        <div>
-                            <img alt={shoe.name} src={shoe.img_URL} className='max-h-[40rem]'></img>
-                        </div>
-                        <div className='flex flex-col justify-start items-center gap-y-5 md:gap-y-3 lg:gap-y-2'>
-                                <h1 className='text-lg font-lato tracking-wide font-bold text-center'>{shoe.name}</h1>
-                                <SizeGrid category={shoe.category} sizeSwitch={sizeSwitch} setSizeSwitch={setSizeSwitch} />
-                                {errMsg === 'no-size-selected' ?
-                                    <h3 className={'text-md font-myFont text-red-500'}>No size specified.</h3> :
-                                 errMsg === 'duplicate-shoe' ?
-                                    <h3 className={'text-md font-myFont text-red-500'}>Shoe already added to cart.</h3> :
-                                    <h3 className='text-md font-myFont text-black opacity-0'>This is an invisible text.</h3>
-                                }
+                <section key={name_id} className="p-6 w-full flex flex-col items-center md:flex-row md:justify-center">
+                    <div>
+                        <img alt={shoe.name} src={shoe.img_URL} className='max-h-[40rem]'></img>
+                    </div>
+                    <div className='flex flex-col justify-start items-center gap-y-5 md:gap-y-3 lg:gap-y-2'>
+                            <h1 className='text-lg font-lato tracking-wide font-bold text-center'>{shoe.name}</h1>
+                            <SizeGrid category={shoe.category} sizeSwitch={sizeSwitch} setSizeSwitch={setSizeSwitch} />
+                            {errMsg === 'no-size-selected' ?
+                                <h3 className={'text-md font-myFont text-red-500'}>No size specified.</h3> :
+                                errMsg === 'duplicate-shoe' ?
+                                <h3 className={'text-md font-myFont text-red-500'}>Shoe already added to cart.</h3> :
+                                <h3 className='text-md font-myFont text-black opacity-0'>This is an invisible text.</h3>
+                            }
 
-                                <div className='flex w-full justify-center items-center gap-x-5'>
-                                    <ShoePrice shoe={shoe} className={'flex flex-col font-montserrat text-sm md:text-lg'} />
-                                    <button type='submit' onClick={e=>addToCart(e,shoe)} className='px-8 py-3 rounded-full flex flex-col items-center justify-between
-                                     transition-colors bg-indigo-700 text-slate-200 hover:bg-indigo-800 active:scale-90 '>
-                                        <span>Add to Cart</span>
-                                        <img alt='cart-icon' src={CartIcon} className='max-w-[20px] invert'/>
-                                    </button>
-                                </div>
+                            <div className='flex w-full justify-center items-center gap-x-5'>
+                                <ShoePrice shoe={shoe} className={'flex flex-col font-montserrat text-sm md:text-lg'} />
+                                <button type='submit' onClick={e=>addToCart(e,shoe)} className='px-8 py-3 rounded-full flex flex-col items-center justify-between
+                                    transition-colors bg-indigo-700 text-slate-200 hover:bg-indigo-800 active:scale-90 '>
+                                    <span>Add to Cart</span>
+                                    <img alt='cart-icon' src={CartIcon} className='max-w-[20px] invert'/>
+                                </button>
+                            </div>
 
-                        </div>
-                    </section>
-
-                )
-            })
+                    </div>
+                </section>
+            ))
 
         }
         </>

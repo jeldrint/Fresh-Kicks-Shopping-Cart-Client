@@ -12,10 +12,8 @@ const ImgCarousel = ({mainData}: {mainData: Shoe []}) : React.ReactElement => {
     },[])
 
     return(
-        <div>
-            <ImgSlide carouselShoes={carouselShoes} />
-        </div>
-        ) 
+        <ImgSlide carouselShoes={carouselShoes} />
+    ) 
 }
 
 export default ImgCarousel
