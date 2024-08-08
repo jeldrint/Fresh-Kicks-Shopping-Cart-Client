@@ -23,7 +23,6 @@ const App = ({ setMainData, isErrorMain, setIsErrorMain, isLoadingMain, setIsLoa
 
     return (
     <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
-
         <Header cartItems={cartItems} setCartItems={setCartItems} />
         {
             isLoadingMain ? <p>Loading... Please wait</p> :

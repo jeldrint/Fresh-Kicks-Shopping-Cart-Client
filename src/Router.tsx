@@ -7,6 +7,7 @@ import Shop from './router-components/Shop';
 import ShoeSolo from './router-components/ShoeSolo';
 import Checkout from './components/Checkout';
 import { getItem } from './localstorage';
+import ImgCarousel from './router-components/ImageCarousel';
 
 const Router = () : React.ReactElement => {
     const [mainData, setMainData] = useState<Shoe []>([]);
@@ -26,6 +27,7 @@ const Router = () : React.ReactElement => {
             setIsErrorMain={setIsErrorMain} isLoadingMain={isLoadingMain} setIsLoadingMain={setIsLoadingMain}
             cartItems={cartItems} setCartItems={setCartItems} />,
             children: [
+                { path: '/fresh-kicks', element: <ImgCarousel mainData={mainData} /> },
                 { path: '/fresh-kicks/:category', element: <Shop mainData={mainData} /> },
                 { path: '/fresh-kicks/:category/:name_id', element: <ShoeSolo mainData={mainData} cartItems={cartItems} setCartItems={setCartItems} /> },
             ]

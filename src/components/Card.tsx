@@ -7,15 +7,16 @@ const Card = ({shoe}: {shoe: Shoe}) : React.ReactElement => {
     const fullLink: string = `/fresh-kicks/${category}/${shoe.name_id}`
 
     return (
-        <Link to={fullLink} className='font-sans max-w-xs rounded shadow-lg border-2 flex flex-col p-2 lg:p-4 cursor-pointer transition duration-250 hover:scale-105'>
-            <img alt={shoe.name} src={shoe.img_URL} className="object-cover" />
-            <div className='w-full h-full text-xs md:text-sm grid grid-rows-2'>
-                <div className="flex flex-col">
+        <Link to={fullLink} className="relative max-h-xs rounded shadow-lg border-2 p-2 lg:p-4 flex flex-col justify-between cursor-pointer transition duration-250 hover:scale-105">
+            <div className='font-sans grid auto-rows-max'>
+                { shoe.discount != null && <span className='absolute right-0 top-0 p-1 font-bold bg-indigo-600 text-slate-200'>-{shoe.discount * 100 }%</span> }
+                <img alt={shoe.name} src={shoe.img_URL} className="object-cover" />
+                <div className='flex flex-col text-xs md:text-sm'>
                     <span className="text-red-700 font-bold font-montserrat">{shoe.brand.toUpperCase()}</span>
-                    <span>{shoe.name}</span>
+                    <span className="">{shoe.name}</span>
                 </div>
-                <ShoePrice shoe={shoe} className='font-lato text-xs md:text-sm self-end' />
             </div>
+            <ShoePrice shoe={shoe} className='mt-1 flex flex-col font-lato text-xs md:text-sm' />
         </Link>
     )
 }

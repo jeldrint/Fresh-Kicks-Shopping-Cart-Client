@@ -42,7 +42,7 @@ const ShoeSolo = ({mainData, cartItems, setCartItems} : ShoeSoloProps) : React.R
             .map(shoe => {
                 //console.log(shoe.category.menShoeSize)
                 return (
-                    <section key={name_id} className="p-10 w-full flex flex-col items-center md:flex-row md:justify-center">
+                    <section key={name_id} className="p-6 w-full flex flex-col items-center md:flex-row md:justify-center">
                         <div>
                             <img alt={shoe.name} src={shoe.img_URL} className='max-h-[40rem]'></img>
                         </div>
@@ -57,9 +57,7 @@ const ShoeSolo = ({mainData, cartItems, setCartItems} : ShoeSoloProps) : React.R
                                 }
 
                                 <div className='flex w-full justify-center items-center gap-x-5'>
-                                    <div className='text-2xl font-bold'>
-                                        <ShoePrice shoe={shoe} className={'font-montserrat text-sm md:text-lg'} />
-                                    </div>
+                                    <ShoePrice shoe={shoe} className={'flex flex-col font-montserrat text-sm md:text-lg'} />
                                     <button type='submit' onClick={e=>addToCart(e,shoe)} className='px-8 py-3 rounded-full flex flex-col items-center justify-between
                                      transition-colors bg-indigo-700 text-slate-200 hover:bg-indigo-800 active:scale-90 '>
                                         <span>Add to Cart</span>

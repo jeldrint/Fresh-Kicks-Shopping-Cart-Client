@@ -13,7 +13,7 @@ export type Shoe = {
     name: string,
     brand: string,
     price: number,
-    discount?: number,
+    discount: number,
     rating?: number,
     img_URL: string,
     createdAt: string,
