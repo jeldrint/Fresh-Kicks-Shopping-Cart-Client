@@ -5,11 +5,15 @@ import { Shoe } from "../types/shoetype"
 
 const ImgCarousel = ({mainData}: {mainData: Shoe []}) : React.ReactElement => {
     const [carouselShoes,setCarouselShoes] = useState<Shoe []>([])
-    const tempArr: Shoe [] = mainData;
+    const tempArr: Shoe [] = [];
 
     useEffect(()=> {
-        //console.log(mainData.sort((a,b)=>b.discount - a.discount).slice(0,5))
-        setCarouselShoes(tempArr.sort((a,b)=>b.discount - a.discount).slice(0,5))
+        if(tempArr.length === 0){
+            mainData.forEach(shoe => {
+                tempArr.push(shoe)
+            })    
+        }
+        setCarouselShoes(tempArr.sort((a,b)=>b.discount - a.discount).slice(0,8))
     },[])
 
     return(
