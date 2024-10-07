@@ -2,7 +2,7 @@
 force = true
 from = '/api/*'
 status = 200
-to = 'https://fresh-kicks-shopping-cart-server-production.up.railway.app/api/:splat'
+to = 'https://artificial-ilyse-john-eldrin-8ddb21dc.koyeb.app/api/:splat'
 
 [[redirects]]
 from = '/*'

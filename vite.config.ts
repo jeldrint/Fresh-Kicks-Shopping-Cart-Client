@@ -14,7 +14,7 @@ export default defineConfig({
     },
     server: {
       proxy: {
-        "/api": "https://fresh-kicks-shopping-cart-server-production.up.railway.app"
+        "/api": "https://artificial-ilyse-john-eldrin-8ddb21dc.koyeb.app"
         //"/api": "http://localhost:3000"
       }
     }
